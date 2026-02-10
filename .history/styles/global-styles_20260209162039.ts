@@ -43,15 +43,6 @@ export const globalStyles = StyleSheet.create({
         borderRadius: 100,
         justifyContent: 'center',
         marginHorizontal: 10,
-    },
-
-    buttonText: {
-        textAlign: 'center',
-        padding: 10,
-        fontSize: 30,
-        color: Colors.textPrimary,
-        fontWeight: '300',
-        fontFamily: 'SpaceMono'
-    },
+    }
 
 })

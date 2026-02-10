@@ -61,7 +61,7 @@ const CalculatorApp = () => {
                 />
             </View>
 
-            {/* Tercera fila */}
+            {/* Segunda fila */}
             <View style={globalStyles.row}>
                 <BtnCalculator label='4' onPress={() => console.log('4')} />
                 <BtnCalculator label='5' onPress={() => console.log('5')} />
@@ -70,30 +70,6 @@ const CalculatorApp = () => {
                     label='-'
                     color={Colors.orange}
                     onPress={() => console.log('-')}
-                />
-            </View>
-
-            {/* Cuarta fila */}
-            <View style={globalStyles.row}>
-                <BtnCalculator label='1' onPress={() => console.log('1')} />
-                <BtnCalculator label='2' onPress={() => console.log('2')} />
-                <BtnCalculator label='3' onPress={() => console.log('3')} />
-                <BtnCalculator
-                    label='+'
-                    color={Colors.orange}
-                    onPress={() => console.log('+')}
-                />
-            </View>
-
-            {/* Quinta fila */}
-            <View style={globalStyles.row}>
-                <BtnCalculator label='0' doubleSize onPress={() => console.log('0')} />
-                <BtnCalculator label='.' onPress={() => console.log('.')} />
-
-                <BtnCalculator
-                    label='='
-                    color={Colors.orange}
-                    onPress={() => console.log('=')}
                 />
             </View>
 

@@ -87,7 +87,7 @@ const CalculatorApp = () => {
 
             {/* Quinta fila */}
             <View style={globalStyles.row}>
-                <BtnCalculator label='0' doubleSize onPress={() => console.log('0')} />
+                <BtnCalculator label='0' onPress={() => console.log('0')} />
                 <BtnCalculator label='.' onPress={() => console.log('.')} />
 
                 <BtnCalculator
