@@ -8,7 +8,7 @@ import { View } from 'react-native'
 
 const CalculatorApp = () => {
 
-    const { formula, buildNumber } = useCalculator();
+    const { formula } = useCalculator();
 
 
     return (
@@ -54,9 +54,9 @@ const CalculatorApp = () => {
 
             {/* Segunda fila */}
             <View style={globalStyles.row}>
-                <BtnCalculator label='7' onPress={() => buildNumber('7')} />
-                <BtnCalculator label='8' onPress={() => buildNumber('8')} />
-                <BtnCalculator label='9' onPress={() => buildNumber('9')} />
+                <BtnCalculator label='7' onPress={() => console.log('7')} />
+                <BtnCalculator label='8' onPress={() => console.log('8')} />
+                <BtnCalculator label='9' onPress={() => console.log('9')} />
                 <BtnCalculator
                     label='X'
                     color={Colors.orange}
@@ -66,9 +66,9 @@ const CalculatorApp = () => {
 
             {/* Tercera fila */}
             <View style={globalStyles.row}>
-                <BtnCalculator label='4' onPress={() => buildNumber('4')} />
-                <BtnCalculator label='5' onPress={() => buildNumber('5')} />
-                <BtnCalculator label='6' onPress={() => buildNumber('6')} />
+                <BtnCalculator label='4' onPress={() => console.log('4')} />
+                <BtnCalculator label='5' onPress={() => console.log('5')} />
+                <BtnCalculator label='6' onPress={() => console.log('6')} />
                 <BtnCalculator
                     label='-'
                     color={Colors.orange}
@@ -78,9 +78,9 @@ const CalculatorApp = () => {
 
             {/* Cuarta fila */}
             <View style={globalStyles.row}>
-                <BtnCalculator label='1' onPress={() => buildNumber('1')} />
-                <BtnCalculator label='2' onPress={() => buildNumber('2')} />
-                <BtnCalculator label='3' onPress={() => buildNumber('3')} />
+                <BtnCalculator label='1' onPress={() => console.log('1')} />
+                <BtnCalculator label='2' onPress={() => console.log('2')} />
+                <BtnCalculator label='3' onPress={() => console.log('3')} />
                 <BtnCalculator
                     label='+'
                     color={Colors.orange}
@@ -90,8 +90,8 @@ const CalculatorApp = () => {
 
             {/* Quinta fila */}
             <View style={globalStyles.row}>
-                <BtnCalculator label='0' doubleSize onPress={() => buildNumber('0')} />
-                <BtnCalculator label='.' onPress={() => buildNumber('.')} />
+                <BtnCalculator label='0' doubleSize onPress={() => console.log('0')} />
+                <BtnCalculator label='.' onPress={() => console.log('.')} />
 
                 <BtnCalculator
                     label='='

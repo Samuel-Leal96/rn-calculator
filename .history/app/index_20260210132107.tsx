@@ -16,7 +16,7 @@ const CalculatorApp = () => {
 
             {/* Resultados */}
             <View style={{ paddingHorizontal: 30, paddingBottom: 20 }}>
-                <ThemeText variant='primary'>{formula}</ThemeText>
+                <ThemeText variant='primary'> {formula} </ThemeText>
 
                 <ThemeText variant='secondary'>
                     250
