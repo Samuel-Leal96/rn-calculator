@@ -38,19 +38,7 @@ export const useCalculator = () => {
     }
 
     const deleteLast = () => {
-        let currentSign = '';
-        let temporalNumber = number;
-
-        if (number.includes('-')) {
-            currentSign = '-';
-            temporalNumber = number.replace('-', '');
-        }
-
-        if (temporalNumber.length > 1) {
-            return setNumber(currentSign + temporalNumber.slice(0, -1));
-        }
-
-        setNumber('0');
+        console.log('delete');
     }
 
     const buildNumber = (numberString: string) => {

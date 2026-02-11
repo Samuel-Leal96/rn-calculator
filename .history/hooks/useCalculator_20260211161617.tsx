@@ -29,30 +29,6 @@ export const useCalculator = () => {
         lastOperation.current = null;
     }
 
-    const toogleSign = () => {
-        if (number.includes('-')) {
-            setNumber(number.replace('-', ''));
-        } else {
-            setNumber('-' + number);
-        }
-    }
-
-    const deleteLast = () => {
-        let currentSign = '';
-        let temporalNumber = number;
-
-        if (number.includes('-')) {
-            currentSign = '-';
-            temporalNumber = number.replace('-', '');
-        }
-
-        if (temporalNumber.length > 1) {
-            return setNumber(currentSign + temporalNumber.slice(0, -1));
-        }
-
-        setNumber('0');
-    }
-
     const buildNumber = (numberString: string) => {
         //* Verificar si ya existe un punto decimal
         if (number.includes('.') && numberString === '.') return;
@@ -89,10 +65,7 @@ export const useCalculator = () => {
         prevNumber,
 
         //Methods
-        buildNumber,
-        clean,
-        toogleSign,
-        deleteLast
+        buildNumber
     };
 
 }
