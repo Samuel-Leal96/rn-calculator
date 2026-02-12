@@ -20,7 +20,6 @@ const CalculatorApp = () => {
         addOperation,
         multiplyOperation,
         subtractOperation,
-        calculateResult,
         calculateTotal
 
     } = useCalculator();

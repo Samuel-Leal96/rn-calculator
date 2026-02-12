@@ -92,21 +92,25 @@ export const useCalculator = () => {
     const divideOperation = () => {
         setLastNumber();
         lastOperation.current = Operator.divide;
+        changeOperator(Operator.divide);
     }
 
     const multiplyOperation = () => {
         setLastNumber();
         lastOperation.current = Operator.multiply;
+        changeOperator(Operator.multiply);
     }
 
     const addOperation = () => {
         setLastNumber();
         lastOperation.current = Operator.add;
+        changeOperator(Operator.add);
     }
 
     const subtractOperation = () => {
         setLastNumber();
         lastOperation.current = Operator.subtract;
+        changeOperator(Operator.subtract);
     }
 
     const calculateResult = () => {
@@ -136,6 +140,21 @@ export const useCalculator = () => {
         setNumber(`${result}`);
         setPrevNumber(formula);
         lastOperation.current = null;
+    }
+
+    const changeOperator = (newOperator: Operator) => {
+        // Si la fórmula ya tiene un operador, solo lo reemplazamos
+        const parts = formula.split(' ');
+        console.log(parts)
+        console.log(parts.length)
+        if (parts.length >= 2) {
+            // Ya hay un operador, solo lo reemplazamos
+            const firstNumber = parts[0];
+            setFormula(`${firstNumber} ${newOperator}`);
+        } else {
+            // No hay operador, agregamos el número actual y el nuevo operador
+            setFormula(`${number} ${newOperator}`);
+        }
     }
 
     return {
