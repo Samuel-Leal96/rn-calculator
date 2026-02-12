@@ -8,19 +8,7 @@ import { View } from 'react-native'
 
 const CalculatorApp = () => {
 
-    const {
-        formula,
-        prevNumber,
-        buildNumber,
-        clean,
-        toogleSign,
-        deleteLast,
-        divideOperation,
-        addOperation,
-        multiplyOperation,
-        subtractOperation
-
-    } = useCalculator();
+    const { formula, prevNumber, buildNumber, clean, toogleSign, deleteLast, divideOperation, addOperation, multiplyOperation, subtractOperation } = useCalculator();
 
 
     return (
@@ -73,7 +61,7 @@ const CalculatorApp = () => {
                 <BtnCalculator
                     label='X'
                     color={Colors.orange}
-                    onPress={multiplyOperation}
+                    onPress={() => multiplyOperation}
                 />
             </View>
 
@@ -85,7 +73,7 @@ const CalculatorApp = () => {
                 <BtnCalculator
                     label='-'
                     color={Colors.orange}
-                    onPress={subtractOperation}
+                    onPress={() => subtractOperation}
                 />
             </View>
 
@@ -97,7 +85,7 @@ const CalculatorApp = () => {
                 <BtnCalculator
                     label='+'
                     color={Colors.orange}
-                    onPress={addOperation}
+                    onPress={() => addOperation}
                 />
             </View>
 

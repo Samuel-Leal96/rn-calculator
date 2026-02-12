@@ -30,7 +30,7 @@ export const useCalculator = () => {
 
     useEffect(() => {
         // Todo: Calcular subResultado
-        // setPrevNumber(number);
+        // setFormula(number);
     }, [number]);
 
     const clean = () => {

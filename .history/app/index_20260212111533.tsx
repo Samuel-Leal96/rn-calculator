@@ -8,19 +8,7 @@ import { View } from 'react-native'
 
 const CalculatorApp = () => {
 
-    const {
-        formula,
-        prevNumber,
-        buildNumber,
-        clean,
-        toogleSign,
-        deleteLast,
-        divideOperation,
-        addOperation,
-        multiplyOperation,
-        subtractOperation
-
-    } = useCalculator();
+    const { formula, prevNumber, buildNumber, clean, toogleSign, deleteLast } = useCalculator();
 
 
     return (
@@ -29,11 +17,14 @@ const CalculatorApp = () => {
             {/* Resultados */}
             <View style={{ paddingHorizontal: 30, paddingBottom: 20 }}>
                 <ThemeText variant='primary'>{formula}</ThemeText>
+
                 {formula === prevNumber ? (
-                    <ThemeText variant='secondary'> </ThemeText>
+                    <ThemeText variant='primary'></ThemeText>
                 ) : (
                     <ThemeText variant='secondary'>{prevNumber}</ThemeText>
                 )}
+
+
             </View>
 
             {/* Filas de botones */}
@@ -61,7 +52,7 @@ const CalculatorApp = () => {
                 <BtnCalculator
                     label='÷'
                     color={Colors.orange}
-                    onPress={divideOperation}
+                    onPress={() => console.log('÷')}
                 />
             </View>
 
@@ -73,7 +64,7 @@ const CalculatorApp = () => {
                 <BtnCalculator
                     label='X'
                     color={Colors.orange}
-                    onPress={multiplyOperation}
+                    onPress={() => console.log('X')}
                 />
             </View>
 
@@ -85,7 +76,7 @@ const CalculatorApp = () => {
                 <BtnCalculator
                     label='-'
                     color={Colors.orange}
-                    onPress={subtractOperation}
+                    onPress={() => console.log('-')}
                 />
             </View>
 
@@ -97,7 +88,7 @@ const CalculatorApp = () => {
                 <BtnCalculator
                     label='+'
                     color={Colors.orange}
-                    onPress={addOperation}
+                    onPress={() => console.log('+')}
                 />
             </View>
 

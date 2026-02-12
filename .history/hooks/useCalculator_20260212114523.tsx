@@ -18,19 +18,8 @@ export const useCalculator = () => {
     const lastOperation = useRef<Operator>(null);
 
     useEffect(() => {
-        if (lastOperation.current) {
-            const firstFormulaPart = formula.split(' ').at(0);
-            setFormula(`${firstFormulaPart} ${lastOperation.current} ${number}`);
-        } else {
-            setFormula(number);
-        }
-
-    }, [number])
-
-
-    useEffect(() => {
         // Todo: Calcular subResultado
-        // setPrevNumber(number);
+        setFormula(number);
     }, [number]);
 
     const clean = () => {

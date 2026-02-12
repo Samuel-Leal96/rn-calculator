@@ -18,19 +18,8 @@ export const useCalculator = () => {
     const lastOperation = useRef<Operator>(null);
 
     useEffect(() => {
-        if (lastOperation.current) {
-            const firstFormulaPart = formula.split(' ').at(0);
-            setFormula(`${firstFormulaPart} ${lastOperation.current} ${number}`);
-        } else {
-            setFormula(number);
-        }
-
-    }, [number])
-
-
-    useEffect(() => {
         // Todo: Calcular subResultado
-        // setPrevNumber(number);
+        setFormula(number);
     }, [number]);
 
     const clean = () => {
@@ -95,8 +84,11 @@ export const useCalculator = () => {
     const setLastNumber = () => {
         //TODO: Calculate result
 
-        number.endsWith('.') ? setPrevNumber(number.slice(0, -1)) : setPrevNumber(number)
+        if (number.endsWith('.')) {
+            setPrevNumber(number.slice(0, -1));
+        }
 
+        setPrevNumber(number);
         setNumber('0');
 
     }
@@ -111,33 +103,32 @@ export const useCalculator = () => {
         lastOperation.current = Operator.multiply;
     }
 
-    const addOperation = () => {
-        setLastNumber();
-        lastOperation.current = Operator.add;
-    }
-
     const subtractOperation = () => {
         setLastNumber();
         lastOperation.current = Operator.subtract;
     }
 
-    return {
+    const addOperation = () => {
+        setLastNumber();
+        lastOperation.current = Operator.add;
+    }
+}
 
-        //Props
-        formula,
-        number,
-        prevNumber,
 
-        //Methods
-        buildNumber,
-        clean,
-        toogleSign,
-        deleteLast,
-        divideOperation,
-        multiplyOperation,
-        addOperation,
-        subtractOperation
 
-    };
+return {
+
+    //Props
+    formula,
+    number,
+    prevNumber,
+
+    //Methods
+    buildNumber,
+    clean,
+    toogleSign,
+    deleteLast,
+    divideOperation
+};
 
 }
