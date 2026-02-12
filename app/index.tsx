@@ -20,7 +20,8 @@ const CalculatorApp = () => {
         addOperation,
         multiplyOperation,
         subtractOperation,
-        calculateResult
+        calculateResult,
+        calculateTotal
 
     } = useCalculator();
 
@@ -31,11 +32,10 @@ const CalculatorApp = () => {
             {/* Resultados */}
             <View style={{ paddingHorizontal: 30, paddingBottom: 20 }}>
 
-                {number && prevNumber !== '' && (
-                    <ThemeText variant='secondary'>{prevNumber}</ThemeText>
-                )}
+                <ThemeText variant='secondary'>{prevNumber}</ThemeText>
 
                 <ThemeText variant='primary'>{formula}</ThemeText>
+
 
             </View>
 
@@ -112,7 +112,7 @@ const CalculatorApp = () => {
                 <BtnCalculator
                     label='='
                     color={Colors.orange}
-                    onPress={calculateResult}
+                    onPress={calculateTotal}
                 />
             </View>
 

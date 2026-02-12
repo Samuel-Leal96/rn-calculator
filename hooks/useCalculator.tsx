@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 enum Operator {
     add = '+',
     subtract = '-',
-    multiply = '*',
+    multiply = 'x',
     divide = '÷'
 }
 
@@ -18,7 +18,6 @@ export const useCalculator = () => {
     const lastOperation = useRef<Operator>(null);
 
     useEffect(() => {
-        console.log(prevNumber);
         if (lastOperation.current) {
             const firstFormulaPart = formula.split(' ').at(0);
             setFormula(`${firstFormulaPart} ${lastOperation.current} ${number}`);
@@ -26,16 +25,6 @@ export const useCalculator = () => {
             setFormula(number);
         }
     }, [number]);
-
-
-    useEffect(() => {
-        if (lastOperation.current && number) {
-            const subResult = calculateResult();
-            setPrevNumber(`${subResult}`);
-        } else {
-            setPrevNumber(''); // Ensure prevNumber is set even if no operation was performed
-        }
-    }, [formula]);
 
     const clean = () => {
         setNumber('0');
@@ -97,14 +86,7 @@ export const useCalculator = () => {
     }
 
     const setLastNumber = () => {
-        // number.endsWith('.') ? setPrevNumber(number.slice(0, -1)) : setPrevNumber(number)
-
-        if (number.endsWith('.')) {
-            setPrevNumber(number.slice(0, -1));
-        }
-        setPrevNumber(number);
-        setNumber('');
-
+        number.endsWith('.') ? setPrevNumber(number.slice(0, -1)) : setNumber('');
     }
 
     const divideOperation = () => {
@@ -149,6 +131,13 @@ export const useCalculator = () => {
         }
     }
 
+    const calculateTotal = () => {
+        const result = calculateResult();
+        setNumber(`${result}`);
+        setPrevNumber(formula);
+        lastOperation.current = null;
+    }
+
     return {
 
         //Props
@@ -165,7 +154,8 @@ export const useCalculator = () => {
         multiplyOperation,
         addOperation,
         subtractOperation,
-        calculateResult
+        calculateResult,
+        calculateTotal
 
     };
 
