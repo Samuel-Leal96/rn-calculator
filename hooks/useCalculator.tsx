@@ -39,7 +39,7 @@ export const useCalculator = () => {
 
     const clean = () => {
         setNumber('0');
-        setPrevNumber('0');
+        setPrevNumber('');
         setFormula('0');
         lastOperation.current = null;
     }
