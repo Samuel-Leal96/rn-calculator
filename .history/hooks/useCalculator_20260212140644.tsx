@@ -29,7 +29,7 @@ export const useCalculator = () => {
 
 
     useEffect(() => {
-        if (lastOperation.current && number) {
+        if (lastOperation.current) {
             const subResult = calculateResult();
             setPrevNumber(`${subResult}`);
         } else {

@@ -13,13 +13,13 @@ export const useCalculator = () => {
     const [formula, setFormula] = useState('');
 
     const [number, setNumber] = useState('0');
-    const [prevNumber, setPrevNumber] = useState('');
+    const [prevNumber, setPrevNumber] = useState('0');
 
     const lastOperation = useRef<Operator>(null);
 
     useEffect(() => {
-        console.log(prevNumber);
         if (lastOperation.current) {
+            console.log(lastOperation.current);
             const firstFormulaPart = formula.split(' ').at(0);
             setFormula(`${firstFormulaPart} ${lastOperation.current} ${number}`);
         } else {
@@ -29,12 +29,8 @@ export const useCalculator = () => {
 
 
     useEffect(() => {
-        if (lastOperation.current && number) {
-            const subResult = calculateResult();
-            setPrevNumber(`${subResult}`);
-        } else {
-            setPrevNumber(''); // Ensure prevNumber is set even if no operation was performed
-        }
+        const subResult = calculateResult();
+        setPrevNumber(`${subResult}`);
     }, [formula]);
 
     const clean = () => {
@@ -65,7 +61,7 @@ export const useCalculator = () => {
             return setNumber(currentSign + temporalNumber.slice(0, -1));
         }
 
-        setNumber('');
+        setNumber('0');
     }
 
     const buildNumber = (numberString: string) => {
@@ -103,7 +99,7 @@ export const useCalculator = () => {
             setPrevNumber(number.slice(0, -1));
         }
         setPrevNumber(number);
-        setNumber('');
+        setNumber('0');
 
     }
 

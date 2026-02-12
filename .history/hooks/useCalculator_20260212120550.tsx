@@ -13,34 +13,30 @@ export const useCalculator = () => {
     const [formula, setFormula] = useState('');
 
     const [number, setNumber] = useState('0');
-    const [prevNumber, setPrevNumber] = useState('');
+    const [prevNumber, setPrevNumber] = useState('0');
 
     const lastOperation = useRef<Operator>(null);
 
     useEffect(() => {
-        console.log(prevNumber);
         if (lastOperation.current) {
             const firstFormulaPart = formula.split(' ').at(0);
             setFormula(`${firstFormulaPart} ${lastOperation.current} ${number}`);
         } else {
             setFormula(number);
         }
-    }, [number]);
+
+    }, [number])
 
 
     useEffect(() => {
-        if (lastOperation.current && number) {
-            const subResult = calculateResult();
-            setPrevNumber(`${subResult}`);
-        } else {
-            setPrevNumber(''); // Ensure prevNumber is set even if no operation was performed
-        }
+        const subResult = calculateResult();
+        setPrevNumber(subResult.toString());
     }, [formula]);
 
     const clean = () => {
         setNumber('0');
         setPrevNumber('0');
-        setFormula('0');
+        setFormula('');
         lastOperation.current = null;
     }
 
@@ -65,7 +61,7 @@ export const useCalculator = () => {
             return setNumber(currentSign + temporalNumber.slice(0, -1));
         }
 
-        setNumber('');
+        setNumber('0');
     }
 
     const buildNumber = (numberString: string) => {
@@ -97,13 +93,11 @@ export const useCalculator = () => {
     }
 
     const setLastNumber = () => {
-        // number.endsWith('.') ? setPrevNumber(number.slice(0, -1)) : setPrevNumber(number)
+        //TODO: Calculate result
 
-        if (number.endsWith('.')) {
-            setPrevNumber(number.slice(0, -1));
-        }
-        setPrevNumber(number);
-        setNumber('');
+        number.endsWith('.') ? setPrevNumber(number.slice(0, -1)) : setPrevNumber(number)
+
+        setNumber('0');
 
     }
 

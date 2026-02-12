@@ -29,7 +29,7 @@ export const useCalculator = () => {
 
 
     useEffect(() => {
-        if (lastOperation.current && number) {
+        if (lastOperation.current) {
             const subResult = calculateResult();
             setPrevNumber(`${subResult}`);
         } else {
@@ -65,7 +65,7 @@ export const useCalculator = () => {
             return setNumber(currentSign + temporalNumber.slice(0, -1));
         }
 
-        setNumber('');
+        setNumber('0');
     }
 
     const buildNumber = (numberString: string) => {

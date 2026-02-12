@@ -29,9 +29,11 @@ export const useCalculator = () => {
 
 
     useEffect(() => {
-        if (lastOperation.current && number) {
+        if (lastOperation.current) {
+            console.log({ number });
             const subResult = calculateResult();
             setPrevNumber(`${subResult}`);
+            console.log({ subResult });
         } else {
             setPrevNumber(''); // Ensure prevNumber is set even if no operation was performed
         }

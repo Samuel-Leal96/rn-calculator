@@ -10,7 +10,6 @@ const CalculatorApp = () => {
 
     const {
         formula,
-        number,
         prevNumber,
         buildNumber,
         clean,
@@ -30,13 +29,12 @@ const CalculatorApp = () => {
 
             {/* Resultados */}
             <View style={{ paddingHorizontal: 30, paddingBottom: 20 }}>
-
-                {number && prevNumber !== '' && (
+                <ThemeText variant='primary'>{formula}</ThemeText>
+                {formula === prevNumber ? (
+                    <ThemeText variant='secondary'> </ThemeText>
+                ) : (
                     <ThemeText variant='secondary'>{prevNumber}</ThemeText>
                 )}
-
-                <ThemeText variant='primary'>{formula}</ThemeText>
-
             </View>
 
             {/* Filas de botones */}
